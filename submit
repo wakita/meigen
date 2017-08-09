@@ -1,0 +1,24 @@
+#!/bin/sh
+#$ -cwd
+#$ -e logs -o logs
+#$ -l f_node=1 -l h_rt=0:60:0
+#$ -M ken_wakita@me.com
+#$ -m beas
+#$ -N magma_eigen
+
+# Submit a batch job and exit
+if [ -z "$JOB_NAME" ]; then
+  qsub -g tga-smartnova $0
+  exit 0
+fi
+
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib
+
+. /etc/profile.d/modules.sh
+module load intel
+module load cuda
+
+date
+./eigen
+date
