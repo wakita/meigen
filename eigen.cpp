@@ -23,8 +23,7 @@ int main(int argc, char *argv[]) {
   double* loaded_data = reinterpret_cast<double*>(B.data);
   std::cout << "data/enron-B: " << B.shape[0] << 'x' << B.shape[1] << std::endl;
 
-  std::string path = "data/";
-  path.append(dataset); path.append("-B2.npy");
+  std::string path = "data/"; path.append(dataset); path.append("-B2.npy");
   unsigned int shape2[] = { B.shape[0], B.shape[1] };
   cnpy::npy_save(path, loaded_data, shape2, 2, "w");
 

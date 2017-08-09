@@ -29,8 +29,6 @@
 # Executables
 eigen
 
-# Data
+# Misc
 /data
-
-# Logs
 /logs
